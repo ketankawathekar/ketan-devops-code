@@ -13,4 +13,6 @@ output "my-ec2-instance-id" {
 resource "local_file" "ketan-data" {
   content  = aws_instance.example.public_ip
   filename = "${path.module}/myip.txt"
+  #making manual dependecy 
+  depends_on = [ aws_instance.example ]
 }
