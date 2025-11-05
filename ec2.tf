@@ -8,5 +8,21 @@ resource "aws_instance" "example" {
   tags = {
     "Name" = var.vm-name
   }
+  #provisioner
+  provisioner "remote-exec" {
+    inline = [
+      "sudo dnf install git httpd -y",
+      "mkdir -p ketan/test"
+    ]
+
+  }
+  connection {
+    type = "ssh"
+    user = "ec2-user"
+    host = self.public_ip
+    #content of private key data
+    private_key = tls_private_key.example.private_key_pem
+  }
 
 }
+
