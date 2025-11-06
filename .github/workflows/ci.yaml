@@ -1,8 +1,8 @@
-name: ashuothshh job 
+name: ketan job 
 # trigger point 
 on:
   push:
-    branches: [ "dryrun-aws" ]
+    branches: [ "main" ]
     paths-ignore:
       - "README.md"
       - "terraform.tfstate"
@@ -16,7 +16,7 @@ jobs:
     - name: taking code from my repo 
       uses: actions/checkout@v5
       with:
-        ref: dryrun-aws 
+        ref: main 
 # terrafor installing 
     - name: installing terraform 
       uses: hashicorp/setup-terraform@v3
