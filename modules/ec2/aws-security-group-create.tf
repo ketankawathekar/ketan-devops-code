@@ -1,7 +1,7 @@
 #this is data source -- fetching vpc details
 data "aws_vpc" "example" {
-    id = var.my-vpc-id
-  
+  id = var.my-vpc-id
+
 }
 
 #create security group
