@@ -39,8 +39,8 @@ jobs:
         aws-region: ap-southeast-2
 
 
-        -name verify aws connection
-         run:
-          echo "checking with command"
-          aws s3 ls
+    - name: verify aws connection
+      run:
+        echo "checking with command"
+        aws s3 ls
   
