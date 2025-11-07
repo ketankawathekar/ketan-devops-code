@@ -83,7 +83,7 @@ jobs:
     - name: installing ansible  
       run: | 
         echo "setup of ansible in ubuntu machine"
-        sudo apt udpate 
+        sudo apt update 
         sudo apt install ansible -y 
         ansible --version 
 
