@@ -1,6 +1,6 @@
 ---
 - name: defining target group
-  hosts: web-server
+  hosts: ketan-roche
   #defining variables
   vars:
     x: httpd
@@ -24,10 +24,11 @@
   - name: copy code to httpd app server location
     copy: 
       src: myapps/index.html
-      dest: /var/www/html/ketan.html
+      dest: /var/www/html/
   
   - name: starting {{ x }} service
     service:
       name: "{{ x }}"
       state: started
+      enabled: yes
 
