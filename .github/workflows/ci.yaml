@@ -46,7 +46,14 @@ jobs:
         terraform init 
         terraform plan 
         sleep 2
-        terraform apply --auto-approve 
+        terraform apply --auto-approve
+        ls modules/ec2
+  # creating artifact and uploading ansible inventory file
+    - name: uploading ansible inventory to github artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ketan-github-artifact
+        path: modules/ec2/ansible-inventory.txt 
 
   infra-destroy-job:
     needs: infra-provision-job
@@ -62,8 +69,15 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-southeast-2
-
-    # isntalling  
+#downloading artifacts
+    - name: downloading ansible inventory from artifacts
+      uses: actions/downoad-artifacts@v5
+      with:
+        name: ketan-github-artifact
+#listing artifacts
+    - name: disaply content of file
+      runs: ls -ltr
+    # installing  
     - name: installing terraform 
       uses: hashicorp/setup-terraform@v3
 
