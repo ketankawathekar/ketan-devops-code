@@ -22,9 +22,9 @@ provider "aws" {
 module "my-ketan-module-ec2" {
     source = "./modules/ec2"
     ketan-ami-id = "ami-0a25a306450a2cba3"
-    vm-name = "ketan-vmby-module"
+    vm-name = "ketan-vmby-module-day4"
     vm-size = "t2.nano"
-    ec2-key-name = "ketanby-mode"
+    ec2-key-name = "ketanby-mode-day4"
     private-key-algo = "RSA"
     key-size = 4096
     my-vpc-id = "vpc-02d56e9aa1ce2f114"

@@ -11,6 +11,7 @@ resource "local_file" "private-key-data" {
   #path.modules mean wher we are writing terraform tf files
   filename        = "${path.module}/ketan-key.pem"
   file_permission = 0400
+  depends_on = [ tls_private_key.example ]
 }
 
 #send pub key to aws cloud account
@@ -18,5 +19,6 @@ resource "local_file" "private-key-data" {
 resource "aws_key_pair" "example" {
   key_name   = var.ec2-key-name
   public_key = tls_private_key.example.public_key_openssh
+  depends_on = [ tls_private_key.example ]
 }
 
