@@ -92,7 +92,7 @@ jobs:
         echo "running ansible playbook"
         chmod 400 ketan-key.pem
         cd my-ansible
-        ansible-playbook i ../ansible-inventory.txt --private-key ../ketan-key.pem playbook.yaml
+        ansible-playbook -i ../ansible-inventory.txt --private-key ../ketan-key.pem playbook.yaml
 
 
     
