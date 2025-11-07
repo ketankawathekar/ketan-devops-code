@@ -76,7 +76,7 @@ jobs:
         name: ketan-github-artifact
 #listing artifacts
     - name: disaply content of file
-      runs: ls -ltr
+      run: ls -ltr
     # installing  
     - name: installing terraform 
       uses: hashicorp/setup-terraform@v3
