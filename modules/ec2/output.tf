@@ -12,7 +12,7 @@ output "my-ec2ID" {
 }
 # storig data in local system
 resource "local_file" "ketan-data" {
-  content  = join("\n",aws_instance.example[*].public_ip)
+  content  = "[ketan-roche]\n${join("\n",aws_instance.example[*].public_ip)}"
   filename = "${path.module}/ansible-inventory.txt"
   #making manual dependecy 
   depends_on = [aws_instance.example]

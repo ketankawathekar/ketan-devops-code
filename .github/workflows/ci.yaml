@@ -87,6 +87,14 @@ jobs:
         sudo apt install ansible -y 
         ansible --version 
 
+    - name: running ansible playbook in dynamic inventory
+      run: |
+        echo "running ansible playbook"
+        chmod 400 ketan-key.pem
+        cd my-ansible
+        ansible-playbook i ../ansible-inventory.txt --private-key ../ketan-key.pem playbook.yaml
+
+
     
 
 
